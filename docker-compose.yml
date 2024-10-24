@@ -5,6 +5,7 @@ services:
     build:
       context: ./
       dockerfile: docker/Dockerfile
+    image: php83-apache:latest
     container_name: hexagonal-app
     restart: always
     working_dir: /var/www/html
