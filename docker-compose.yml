@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+    container_name: hexagonal-app
+    restart: always
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./docker/apache/vhosts:/etc/apache2/sites-enabled
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8002:80"
